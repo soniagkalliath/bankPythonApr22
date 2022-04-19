@@ -27,7 +27,11 @@ export class DashboardComponent implements OnInit {
   
     })
 
-  constructor(private ds:DataService,private fb:FormBuilder) { }
+    user:any
+
+  constructor(private ds:DataService,private fb:FormBuilder) {
+    this.user = this.ds.currentUsername
+   }
 
   ngOnInit(): void {
   }

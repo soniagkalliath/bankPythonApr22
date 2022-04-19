@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  currentUsername:any
+
   database:any={
-    1000:{acno:1000,uname:"Neer",password:1000,balance:5000},
-    1001:{acno:1001,uname:"Laisha",password:1001,balance:2000},
-    1002:{acno:1002,uname:"Vyom",password:1002,balance:4000}
+    1000:{acno:1000,uname:"Neer",password:1000,balance:5000,transaction:[]},
+    1001:{acno:1001,uname:"Laisha",password:1001,balance:2000,transaction:[]},
+    1002:{acno:1002,uname:"Vyom",password:1002,balance:4000,transaction:[]}
   }
   constructor() { }
 
@@ -26,7 +28,8 @@ else{
     acno,
     uname,
     password,
-    balance:0
+    balance:0,
+    transaction:[]
   }
   console.log(database)
   return true
@@ -41,6 +44,7 @@ else{
     if(acno in database){
       //acno match
       if(pswd == database[acno]["password"]){
+      this.currentUsername = database[acno]["uname"]
         //pswd match
         return true
         }
@@ -64,6 +68,11 @@ let database = this.database
 if(acno in database){
   if(pswd == database[acno]["password"]){
       database[acno]["balance"] += amount
+      database[acno]["transaction"].push({
+        type:"CREDIT",  
+        amount:amount
+      })
+      console.log(database)
       return database[acno]["balance"]
   }
   else{
@@ -87,6 +96,11 @@ else{
       
       if(database[acno]["balance"]>amount){
         database[acno]["balance"] -= amount
+        database[acno]["transaction"].push({
+          type:"DEBIT",  
+          amount:amount
+        })
+        console.log(database)
         return database[acno]["balance"]
       }
       else{
