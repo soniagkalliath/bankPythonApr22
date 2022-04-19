@@ -1,0 +1,76 @@
+                                Angular - Front End 
+                            ----------------------------
+
+
+                                Angular - Commands
+                            -------------------------
+
+        1. to create Angular project - ng new project_name / ng new project_name --routing
+
+        2. to run a Angular project - ng serve / ng serve --open
+
+        3. to create component - ng g c component_name
+
+        4. to create Services - ng g s service_name
+
+      
+
+      
+
+
+
+                                Angular Basics
+
+                            ----------------------
+
+
+            1. Modules - to import libraries - root Module - AppModule
+
+            2. Component - to get {HTML, CSS, TS} - root Component - AppComponent
+
+            3. Data Binding - To share data between .html and .ts file
+
+                3.1 One way binding - data shairing only in one direction
+
+                    3.1.1 component to view
+
+                        3.1.1.1 String Interpolation - syntax: {{variable-name}}
+
+                        3.1.1.2 Property Binding - syntax: [attribute-name]="variable-name"
+
+                    3.1.2 View to Component 
+
+                        3.1.2.1 Event Binding - syntax: (event-name) = "function call()"
+
+                        3.1.2.2 Event Binding using $event -syntax: (event-name)= "function call($event)"
+
+                        3.1.2.3 Template reference variable - syntax: #variable-name
+
+                3.2 Two way Binding - data shairing between ts n html in both direction
+
+                    3.2.1 ngModel  - import FormsModule - syntax: [(ngModel)]="variable-name"
+
+            4. Angular routing - tho set path for component - {path: , component:}
+
+            5. Dependency Injection - in constructor - syntax: access specifier obj-name: instance-name
+
+            6. ngSubmit - 
+
+            7. Angular Services - to hold redendant code
+
+            8. Angular Form
+
+                8.1 Template Driven Angular Forms- first design html 
+
+                8.2 Model Driven Angular Forms - first create model for that html in ts file
+
+                    8.2.1 Reactive Forms - Add validation to it - import ReactiveFormsModule in AppModule
+                        - {form group, form array, form control name}
+
+            9. Angular Directives - Used to manipulate DOM
+
+                9.1 Component Directives 
+
+                9.2 Structural Directives - To add/remove tag the structure of DOM
+
+                    9.2.1 ngIf - syntax : *ngIf="condition"
